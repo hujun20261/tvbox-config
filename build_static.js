@@ -151,5 +151,7 @@ export default {
   fs.writeFileSync(path.join(ROOT, 'tvbox-pages', '_worker.js'), worker, 'utf8');
   // 同时存一份纯静态 config.json 备用
   fs.writeFileSync(path.join(ROOT, 'tvbox-pages', 'config.json'), CONFIG_JSON, 'utf8');
-  console.log('已写入 tvbox-pages/_worker.js 和 config.json');
+  // 同时输出一份到仓库根目录，用于更短的 jsDelivr 链接：...@master/config.json
+  fs.writeFileSync(path.join(ROOT, 'config.json'), CONFIG_JSON, 'utf8');
+  console.log('已写入 tvbox-pages/_worker.js、tvbox-pages/config.json 和根目录 config.json');
 })();
